@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
-import  LoginForm  from './Components/LoginForm';
 import './App.css';
-import settingImg from "./img/setting.png";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Register from './Components/Register';
 import Login from './Components/Login';
-import bell from "./img/bell.svg";
-import userIcon from "./img/bell.svg";
-import homeIcon from "./img/bell.svg";
-import logoutIcon from "./img/bell.svg";
-import accountsIcon from "./img/bell.svg";
-import burgerMenu from "./img/burger-menu.svg";
 
 
 class App extends Component {
@@ -30,11 +23,15 @@ class App extends Component {
 
   render() {
     return (
+    <Router>
       <div className="App">
-        <Header/>
-       <Register/>
-        <Login/>
+          <Header />
+        <Routes>
+            <Route exact path="/register" element={<Register/>} />
+            <Route exact path="/login" element={<Login/>} />
+          </Routes>
       </div>
+    </Router>
     );
   }
 }
