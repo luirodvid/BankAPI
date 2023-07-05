@@ -7,12 +7,12 @@ import java.util.function.Predicate;
 import org.springframework.stereotype.Component;
 
 import bank.bankapi.User.User;
-import bank.bankapi.User.UserDaoService;
 
 @Component
 public class BankDaoService {
     private static List<BankAccount> accounts = new ArrayList<>();
     private static int accountsNumber = 0;
+
     
     public BankAccount save( BankAccount bankAccount, User user){
         bankAccount.setId(++accountsNumber);

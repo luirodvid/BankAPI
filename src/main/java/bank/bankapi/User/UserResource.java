@@ -57,5 +57,9 @@ public class UserResource {
         service.deleteById(id);
 
     }
+    @PostMapping("/login")
+    public User login(@RequestBody User user){
+        return service.login(user.getUsername(), user.getPassword());
+    }
     
 }

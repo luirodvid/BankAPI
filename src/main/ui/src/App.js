@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import  LoginForm  from './Components/LoginForm';
 import './App.css';
 import settingImg from "./img/setting.png";
 import bell from "./img/bell.svg";
@@ -8,6 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoggedIn: false,
+      logUsername: '',
       firstName: '',
       lastName: '',
       username: '',
@@ -15,6 +17,23 @@ class App extends Component {
       email: '',
       phoneNumber: ''
     };
+  }
+
+  handleLogin = (logUsername) => {
+    this.setState({
+      isLoggedIn: true,
+      logUsername: logUsername
+    });
+    localStorage.setItem('isLoggedIn', true);
+    localStorage.setItem('logUsername', logUsername);
+  }
+  handleLogout = (logUsername) => {
+    this.setState({
+      isLoggedIn: false,
+      logUsername: ''
+    });
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('logUsername');
   }
 
   handleChange = (event) => {
@@ -44,7 +63,7 @@ class App extends Component {
 
 
   render() {
-    const { firstName, lastName, username, password, email, phoneNumber } = this.state;
+    const { isLoggedIn, logUsername, firstName, lastName, username, password, email, phoneNumber } = this.state;
     return (
       <div className="App">
         <header>
@@ -78,6 +97,19 @@ class App extends Component {
             </form>
           </section>
         </div>
+        
+        <div className="Login">
+      {isLoggedIn ? (
+        <div>
+          <h1>Welcome, {logUsername}!</h1>
+          <button onClick={this.handleLogout}>Logout</button>
+        </div>
+      ) : (
+        <LoginForm onLogin={this.handleLogin} />
+      )}
+    </div>
+
+
       </div>
     );
   }

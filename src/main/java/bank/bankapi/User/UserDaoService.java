@@ -54,7 +54,21 @@ public class UserDaoService {
         return users.stream().filter(predicate).findFirst().orElse(null);
     }
 
+    public User findUsername(String username) {
+        Predicate<? super User> predicate = user -> user.getUsername().equals(username);
+        return users.stream().filter(predicate).findFirst().orElse(null);
+    }
+
     public boolean checkPassword(User user, String password){
+        if(user == null) return false;
         return user.getPassword().equals(password);
+    }
+
+    public User login(String username, String password) {
+        User user = findUsername(username);
+        if(checkPassword(user, password)){
+            return user;
+        }
+        return null;
     }
 }
