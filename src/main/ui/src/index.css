@@ -19,14 +19,20 @@ code {
   box-sizing: border-box;
 }
 
+/*Estilos generales para elementos concretos*/
+
 button{
   color: white;
-
+  background-color: transparent;
+  border: none;
 }
 
 button:hover{
   cursor:pointer;
 }
+
+/**/
+
 
 header{
   display: flex;
@@ -53,19 +59,23 @@ header > span{
 }
 
 header > span > button#new{
-
-}
-
-header > span > button#new{
   background-color: green;
   border:none;
   border-radius: 5px;
   padding:0 1rem;
 }
 
-header > span > button#bell{
-  background-color: transparent;
-  border: none;
+aside{
+  position: absolute;
+  margin-left:-10rem;
+  margin-top:41.8rem;
+  background-color: black;
+
+  transition: margin 700ms;
+}
+
+header > button#burger-menu:focus ~ aside{
+  margin-left:0rem;
 }
 
 div.container{
@@ -84,6 +94,10 @@ div.container > h2{
   padding:0 2rem;
 
   color:darkblue;
+}
+
+div.container > section.setting-section{
+
 }
 
 div.container > section.setting-section{
@@ -121,5 +135,5 @@ form > button{
   border:none;
   border-radius: 5px;
 
-  padding:.5rem
+  padding:1rem
 }
