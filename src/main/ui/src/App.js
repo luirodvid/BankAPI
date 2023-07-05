@@ -35,7 +35,7 @@ class App extends Component {
       body: JSON.stringify(user),
       async: true
     }).then(() => {
-      console.log("New Student added")
+      console.log("New user added")
     })
   }
 
@@ -54,7 +54,7 @@ class App extends Component {
         </header>
         <aside>
           <section id="usuario">
-            <img src={user} alt="" />
+           {/*<img src={user} alt="" />*/}
             <p id="firstname"></p>
             <p id="username"></p>
           </section>
