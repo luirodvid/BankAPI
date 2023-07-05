@@ -6,8 +6,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        name1: '',
-        name2: '',
+      firstName: '',
+        lastName: '',
         username: '',
         password: '',
         email: '',
@@ -20,31 +20,37 @@ class App extends Component {
       [event.target.name]: event.target.value
     });
   };
-   handleClick(){
-    const { name1, name2, username, password, email, phoneNumber } = this.state;
-    const user ={name1,name2,username,password, email, phoneNumber}
+  handleSubmit = (event) =>{
+    event.preventDefault();
+    
+    
+    const { firstName, lastName, username, password, email, phoneNumber } = this.state;
+    const user = { firstName, lastName, username, password, email, phoneNumber };
+
     fetch("http://localhost:8080/users",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(user)
+      body:JSON.stringify(user),
+      async: true
     }).then(()=>{
       console.log("New Student added")
     })
   }
   
+  
 
 
 
   render() {
-    const { name1, name2, username, password, email, phoneNumber } = this.state;
+    const { firstName, lastName, username, password, email, phoneNumber } = this.state;
     return (
       <div className="App">
         <div className="container mrgnbtm">
           <div className="row">
             <div className="col-md-8">
             <form onSubmit={this.handleSubmit}>
-          <input type="text" name="name1" placeholder="First Name" value={name1} onChange={this.handleChange} />
-          <input type="text" name="name2" placeholder="Last Name" value={name2} onChange={this.handleChange} />
+          <input type="text" name="firstName" placeholder="First Name" value={firstName} onChange={this.handleChange} />
+          <input type="text" name="lastName" placeholder="Last Name" value={lastName} onChange={this.handleChange} />
           <input type="text" name="username" placeholder="Username" value={username} onChange={this.handleChange} />
           <input type="password" name="password" placeholder="Password" value={password} onChange={this.handleChange} />
           <input type="email" name="email" placeholder="Email" value={email} onChange={this.handleChange} />
