@@ -5,6 +5,7 @@ import UserDetails from './Components/UserDetails';
 import Header from './Components/Header';
 import Register from './Components/Register';
 import Login from './Components/Login';
+import BankAccounts from './Components/BankAccounts';
 
 const App = () => {
 
@@ -17,6 +18,7 @@ const App = () => {
           <Route exact path="/register" element={<Register />} />
           <Route path="/details" element={<UserDetails />} />
           <Route path="/details/:id" element={<UserDetails />} />
+          <Route path="/accounts" element={<BankAccounts />} />
         </Routes>
       </div>
     </Router>
