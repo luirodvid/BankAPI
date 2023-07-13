@@ -1,48 +1,39 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import LoginForm from './LoginForm';
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      logUsername: '',
-      isLoggedIn: false,
-      logId: ''
-    };
-  }
-  handleLogin = (logUsername,logId) => {
-    this.setState({
-      isLoggedIn: true,
-      logUsername: logUsername,
-      logId:logId
-    });
+
+const Login = () => {
+  const [logUsername, setLogUsername] = useState('');
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [logId, setLogId] = useState('');
+
+  const handleLogin = (username, id) => {
+    setLoggedIn(true);
+    setLogUsername(username);
+    setLogId(id);
     localStorage.setItem('isLoggedIn', true);
-    localStorage.setItem('logUsername', logUsername);
-    localStorage.setItem('logId', logId);
-  }
-  handleLogout = (logUsername) => {
-    this.setState({
-      isLoggedIn: false,
-      logUsername: ''
-    });
+    localStorage.setItem('logUsername', username);
+    localStorage.setItem('logId', id);
+  };
+
+  const handleLogout = () => {
+    setLoggedIn(false);
+    setLogUsername('');
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('logUsername');
-  }
-  render(){
-    const { isLoggedIn, logUsername } = this.state;
-    return(
-<div className="Login">
+  };
+
+  return (
+    <div className="Login">
       {isLoggedIn ? (
         <div>
           <h1>Welcome, {logUsername}!</h1>
-          <button onClick={this.handleLogout}>Logout</button>
+          <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
-        <LoginForm onLogin={this.handleLogin} />
+        <LoginForm onLogin={handleLogin} />
       )}
     </div>
-    )
-  }
-}
+  );
+};
+
 export default Login;
-
-

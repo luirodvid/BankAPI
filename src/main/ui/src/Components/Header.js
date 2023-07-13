@@ -7,8 +7,8 @@ import logoutIcon from "../img/bell.svg";
 import accountsIcon from "../img/bell.svg";
 import burgerMenu from "../img/burger-menu.svg";
 
-class Header extends Component {
-    render() {
+const Header = () => {
+    
         return (
 <header>
           <button id="burger-menu">
@@ -53,5 +53,5 @@ class Header extends Component {
             </section>
           </aside>
         </header>
-)}}
+)}
 export default Header;
