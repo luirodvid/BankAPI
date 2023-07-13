@@ -8,6 +8,11 @@ import accountsIcon from "../img/bell.svg";
 import burgerMenu from "../img/burger-menu.svg";
 
 const Header = () => {
+
+  const isLoggedIn = localStorage.getItem('isLoggedIn');
+  const logFirstname = localStorage.getItem('logFirstName');
+  const logLastname = localStorage.getItem('logLastName');
+
     
         return (
 <header>
@@ -22,8 +27,8 @@ const Header = () => {
           <aside>
             <section id="usuario">
               {/*<img src={user} alt="" />*/}
-              <p id="firstname">Nombre</p>
-              <p id="username">Apellido</p>
+              <p id="firstname">{isLoggedIn ? logFirstname : "Nombre"}</p>
+              <p id="username">{isLoggedIn ? logLastname : "Apellido"}</p>
             </section>
             <section id="balance">
               <p id="total"></p>

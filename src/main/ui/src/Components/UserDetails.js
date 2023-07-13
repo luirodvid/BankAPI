@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import settingImg from "../img/setting.png";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
 
 const UserDetails = () => {
   let { id } = useParams();
+  const navigate = useNavigate();
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -15,6 +17,7 @@ const UserDetails = () => {
   useEffect(() => {
     //
     if (id==null) id = localStorage.getItem('logId');
+    if( id != null){
     fetch(`http://localhost:8080/users/${id}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
@@ -32,8 +35,13 @@ const UserDetails = () => {
       .catch(error => {
         console.error('Error al obtener los datos del usuario:', error);
         alert('Error al obtener los datos del usuario');
-      });
-  }, [id]);
+      });}
+      else{
+        navigate("/");
+        ///Aquí quiero que redireccione a la vista principal, a poder ser usando route
+      }
+      
+  }, [id, navigate]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;

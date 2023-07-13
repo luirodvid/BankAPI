@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -28,7 +30,7 @@ const LoginForm = ({ onLogin }) => {
       .then(data => {
         if (data !== null) {
           console.log('Usuario autenticado:', data);
-          onLogin(data.username, data.id);
+          onLogin(data.username, data.id, data.firstName, data.lastName);
         } else {
           alert('Nombre de usuario o contraseña inválidos');
         }
