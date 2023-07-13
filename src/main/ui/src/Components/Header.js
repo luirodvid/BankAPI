@@ -30,26 +30,26 @@ const Header = () => {
               <p>Account balance</p>
             </section>
             <section id="opciones">
-              <p id="opcion-home">
+              <span id="opcion-home">
                 <img src={homeIcon} alt="" />
                 <p>Home</p>
-              </p>
-              <p id="opcion-mi-cuenta">
+              </span>
+              <span id="opcion-mi-cuenta">
                 <img src={userIcon} alt="" />
                 <p>My Account</p>
-              </p>
-              <p id="opcion-cuentas">
+              </span>
+              <span id="opcion-cuentas">
                 <img src={accountsIcon} alt="" />
                 <p>Bank Accounts</p>
-              </p>
-              <p id="opcion-notificaciones">
+              </span>
+              <span id="opcion-notificaciones">
                 <img src={bell} alt="" />
                 <p>Notifications</p>
-              </p>
-              <p id="opcion-logout">
+              </span>
+              <span id="opcion-logout">
                 <img src={logoutIcon} alt="" />
                 <p>Logout</p>
-              </p>
+              </span>
             </section>
           </aside>
         </header>

@@ -3,7 +3,7 @@ import settingImg from "../img/setting.png";
 import { useParams } from 'react-router-dom';
 
 const UserDetails = () => {
-  const { id } = useParams();
+  let { id } = useParams();
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -13,6 +13,8 @@ const UserDetails = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
 
   useEffect(() => {
+    //
+    if (id==null) id = localStorage.getItem('logId');
     fetch(`http://localhost:8080/users/${id}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
