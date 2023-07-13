@@ -6,6 +6,7 @@ import Header from './Components/Header';
 import Register from './Components/Register';
 import Login from './Components/Login';
 import BankAccounts from './Components/BankAccounts';
+import Transfers from './Components/Transfers';
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/details" element={<UserDetails />} />
           <Route path="/details/:id" element={<UserDetails />} />
           <Route path="/accounts" element={<BankAccounts />} />
+          <Route path="/transfers" element={<Transfers />} />
         </Routes>
       </div>
     </Router>

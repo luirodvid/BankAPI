@@ -2,7 +2,9 @@ import { createElement } from "react";
 
 const BankAccounts = () => {
 
-    //Aparece un input text en lugar del button
+    //Cuando se clica el botón Create, este se deshaibilita (display none)
+    //y se muestran el input y button para crear la nueva cuenta bancaria
+
     const onHandleCreate = (event) => {
         event.preventDefault();
 
@@ -11,14 +13,21 @@ const BankAccounts = () => {
         document.getElementById("create-account-button").style.display = "none";
     }
 
+    //Manejador de cuando se mande el nombre de la cuenta
     const onHandleSend = (event) => {
+        event.preventDefault();
+
+    }
+
+    //Manejador de borrar una cuenta bancaria
+    const onHandleDelete = (event) => {
         event.preventDefault();
 
     }
 
 
     return (
-        <div id="accounts-container">
+        <main className="main-container" id="accounts-container">
             {/* form igual se puede eliminar */}
             <div>
                 <h2>Bank Accounts</h2>
@@ -30,13 +39,13 @@ const BankAccounts = () => {
             </div>
             <ul>
                 {/*Deberá ser un List de las cuentas*/}
-                <li><p className="account-info"><span id="bank-name">Nombre del banco</span><span id="money">$5.000</span></p><form action=""><button className="create-delete white-button" type="submit">DELETE</button></form></li>
-                <li><p className="account-info"><span id="bank-name">Nombre del banco</span><span id="money">$5.000</span></p><form action=""><button className="create-delete white-button" type="submit">DELETE</button></form></li>
-                <li><p className="account-info"><span id="bank-name">Nombre del banco</span><span id="money">$5.000</span></p><form action=""><button className="create-delete white-button" type="submit">DELETE</button></form></li>
-                <li><p className="account-info"><span id="bank-name">Nombre del banco 2</span><span id="money">$10.000</span></p><form action=""><button className="create-delete white-button" type="submit">DELETE</button></form></li>
+                <li><p className="account-info"><span id="bank-name">Nombre del banco</span><span id="money">$5.000</span></p><form action=""><button onClick={onHandleDelete} className="create-delete white-button" type="submit">DELETE</button></form></li>
+                <li><p className="account-info"><span id="bank-name">Nombre del banco</span><span id="money">$5.000</span></p><form action=""><button onClick={onHandleDelete} className="create-delete white-button" type="submit">DELETE</button></form></li>
+                <li><p className="account-info"><span id="bank-name">Nombre del banco</span><span id="money">$5.000</span></p><form action=""><button onClick={onHandleDelete} className="create-delete white-button" type="submit">DELETE</button></form></li>
+                <li><p className="account-info"><span id="bank-name">Nombre del banco 2</span><span id="money">$10.000</span></p><form action=""><button onClick={onHandleDelete} className="create-delete white-button" type="submit">DELETE</button></form></li>
 
             </ul>
-        </div>
+        </main>
     )
 }
 

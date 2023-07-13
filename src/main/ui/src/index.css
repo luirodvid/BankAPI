@@ -38,7 +38,14 @@ button:hover{
   cursor:pointer;
 }
 
+/*Cuerpo contenedor gris de todas las páginas*/
+main.main-container{
+  margin:3rem;
+  background-color: lightgrey;
+}
+
 /* Botones CREAR/GUARDAR */
+
 button.darkblue-button{
   background-color: darkblue;
   color:white;
@@ -55,12 +62,12 @@ button.white-button{
 }
 
 
-/**/
+/*      ----------- -HEADER-   -----------*/
 
 
 header{
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
 
   justify-content: space-between;
   align-items: center;  /*Alinemaos verticalmente los elementos del header (botones y h2)*/
@@ -82,6 +89,11 @@ header > span{
   display: flex;
 }
 
+/* Para alinear al centro el "logo" con los li del submenú */
+header > button#burger-menu{
+  margin-right: 6rem
+}
+
 header > span > button#new{
   background-color: green;
   border:none;
@@ -101,6 +113,8 @@ aside{
 header > button#burger-menu:focus ~ aside{
   margin-left:0rem;
 }
+
+/*      ----------- MAIN   -----------*/
 
 div.container{
   width: 80%;
@@ -156,46 +170,66 @@ form > input{
 
 /*      ----------- BANK ACCOUNTS   -----------*/
 
-div#accounts-container{
-  margin:3rem;
-  background-color: lightgrey;
-
+main#accounts-container{
   color: darkblue;
   font-weight: bold;
 }
 
-div#accounts-container > h2, div#accounts-container > div{
+main#accounts-container > h2, main#accounts-container > div{
   display: flex;
   justify-content: space-between;
 }
 
-div#accounts-container > h2, div#accounts-container > div > form{
+main#accounts-container > h2, main#accounts-container > div > form{
   display: flex;
 }
 
 /* Inicialmente ocultamos inputs de enviar nueva cuenta */
-div#accounts-container > h2, div#accounts-container > div > form > input,
-div#accounts-container > h2, div#accounts-container > div > form > button#send-account-name{
+main#accounts-container > h2, main#accounts-container > div > form > input,
+main#accounts-container > h2, main#accounts-container > div > form > button#send-account-name{
   display: none;
 }
 
 /* Eliminamos estilos predefinidos indeseados de lista */
-div#accounts-container > ul{
+main#accounts-container > ul{
   list-style: none;
   padding:0 2rem;
 }
 
-div#accounts-container > ul > li{
+main#accounts-container > ul > li{
   display: flex;
   flex-flow: row;
 
   justify-content: space-between;
 }
 
-div#accounts-container > ul > li > p.account-info{
+main#accounts-container > ul > li > p.account-info{
   display: flex;
   flex-flow: row;
   justify-content: space-between;
 
   flex: .9;
+}
+
+
+/*      ----------- SUBHEADER   -----------*/
+
+
+nav#transfer-nav{
+  flex: 1 100%; /*Hacemos que ocupe todo el ancho del header para que quede debajo de los demás elementos del header*/
+}
+
+nav#transfer-nav > ul{
+  list-style: none;
+  padding:0 2rem;
+  /* Quizás podemos abstraerlo para todas las uls en general */
+  
+  display: flex;
+  flex-flow: row;
+
+  justify-content: space-evenly;
+}
+
+nav#transfer-nav > ul > li{
+  
 }
