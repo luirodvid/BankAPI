@@ -68,7 +68,7 @@ const Register = () => {
           <input type="password" name="password" placeholder="Password" value={password} onChange={handleChange} />
           <input type="email" name="email" placeholder="Email" value={email} onChange={handleChange} />
           <input type="text" name="phoneNumber" placeholder="Phone Number" value={phoneNumber} onChange={handleChange} />
-          <button type="submit">SAVE</button>
+          <button className="create-delete darkblue-button" type="submit">SAVE</button>
         </form>
       </section>
     </div>

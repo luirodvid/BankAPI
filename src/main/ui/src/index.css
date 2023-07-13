@@ -27,9 +27,33 @@ button{
   border: none;
 }
 
+button.create-delete{
+  background-color: transparent;
+  border: none;
+  padding: .8rem 1rem;
+  box-shadow: 2px 2px 5px black;
+}
+
 button:hover{
   cursor:pointer;
 }
+
+/* Botones CREAR/GUARDAR */
+button.darkblue-button{
+  background-color: darkblue;
+  color:white;
+  border:none;
+  border-radius: 5px;
+}
+
+button.white-button{
+  border:none;
+  border-radius: 5px;
+  font-weight: bold;
+  color: black;
+  background-color: white;
+}
+
 
 /**/
 
@@ -129,11 +153,49 @@ form > input{
   width: 100%;
 }
 
-form > button{
-  background-color: darkblue;
-  color:white;
-  border:none;
-  border-radius: 5px;
 
-  padding:1rem
+/*      ----------- BANK ACCOUNTS   -----------*/
+
+div#accounts-container{
+  margin:3rem;
+  background-color: lightgrey;
+
+  color: darkblue;
+  font-weight: bold;
+}
+
+div#accounts-container > h2, div#accounts-container > div{
+  display: flex;
+  justify-content: space-between;
+}
+
+div#accounts-container > h2, div#accounts-container > div > form{
+  display: flex;
+}
+
+/* Inicialmente ocultamos inputs de enviar nueva cuenta */
+div#accounts-container > h2, div#accounts-container > div > form > input,
+div#accounts-container > h2, div#accounts-container > div > form > button#send-account-name{
+  display: none;
+}
+
+/* Eliminamos estilos predefinidos indeseados de lista */
+div#accounts-container > ul{
+  list-style: none;
+  padding:0 2rem;
+}
+
+div#accounts-container > ul > li{
+  display: flex;
+  flex-flow: row;
+
+  justify-content: space-between;
+}
+
+div#accounts-container > ul > li > p.account-info{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+
+  flex: .9;
 }
