@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import settingImg from "../img/setting.png";
-class Register extends Component {
+import { useParams } from 'react-router-dom';
+class UserDetails extends Component {
     constructor(props) {
         super(props);
+        const userId = this.props.id;
         this.state = {
+          id: this.props.id,
           firstName: '',
           lastName: '',
           username: '',
@@ -38,17 +41,22 @@ class Register extends Component {
   
   handleGet = (event) => {
     event.preventDefault();
-
-    const { id, firstName, lastName, username, password, email, phoneNumber } = this.state;
-    const user = { firstName, lastName, username, password, email, phoneNumber };
-
+    const id = this.state.id;
+    console.log( this.userId);
     fetch(`http://localhost:8080/users/${id}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
       async: true
-    }).then(() => {
-      console.log("New user added")
+    }).then((data) => {
+      this.state = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        username: data.username,
+        password: data.password,
+        email: data.email,
+        phoneNumber: data.phoneNumber
+      };
+      
     })
   }
 
@@ -60,7 +68,7 @@ class Register extends Component {
           <h2>User Settings</h2>
           <section className="setting-section" id="setting-img"><img src={settingImg} alt="" /></section>
           <section className="setting-section" id="setting-form">
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleGet}>
               <input type="text" name="firstName" placeholder="First Name" value={firstName} onChange={this.handleChange} />
               <input type="text" name="lastName" placeholder="Last Name" value={lastName} onChange={this.handleChange} />
               <input type="text" name="username" placeholder="Username" value={username} onChange={this.handleChange} />
@@ -75,4 +83,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default UserDetails;

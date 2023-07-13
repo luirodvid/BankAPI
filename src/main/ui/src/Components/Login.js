@@ -5,16 +5,19 @@ class Login extends Component {
     super(props);
     this.state = {
       logUsername: '',
-      isLoggedIn: false
+      isLoggedIn: false,
+      logId: ''
     };
   }
-  handleLogin = (logUsername) => {
+  handleLogin = (logUsername,logId) => {
     this.setState({
       isLoggedIn: true,
-      logUsername: logUsername
+      logUsername: logUsername,
+      logId:logId
     });
     localStorage.setItem('isLoggedIn', true);
     localStorage.setItem('logUsername', logUsername);
+    localStorage.setItem('logId', logId);
   }
   handleLogout = (logUsername) => {
     this.setState({

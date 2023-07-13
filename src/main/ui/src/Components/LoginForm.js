@@ -31,7 +31,7 @@ class LoginForm extends Component {
         if (data !== null) {
           // Inicio de sesión exitoso, accede a los datos del usuario
           console.log('Usuario autenticado:', data);
-          this.props.onLogin(data.username); // Llama a la función de devolución de llamada con los datos del usuario
+          this.props.onLogin(data.username,data.id); // Llama a la función de devolución de llamada con los datos del usuario
         } else {
           // Inicio de sesión fallido
           alert('Nombre de usuario o contraseña inválidos');

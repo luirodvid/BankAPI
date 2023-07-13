@@ -13,11 +13,11 @@ public class UserDaoService {
     static {
         users.add(new User(
                 ++usersCount,
-                "ElJuan",
-                "Apellido",
-                "eljuanillo_xd",
-                "viva-espana",
-                "tujuanillo@hotmail.com",
+                "Juanito",
+                "El Golondrina",
+                "solera@solera.com",
+                "bootcamp5",
+                "solera@solera.com",
                 "099-565-6969"));
 
     }
