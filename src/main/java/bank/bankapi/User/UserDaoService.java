@@ -35,6 +35,11 @@ public class UserDaoService {
     public User edit(User user, int id) {
         User found = findOne(id);
         found.setEmail(user.getEmail());
+        found.setFirstName(user.getFirstName());
+        found.setLastName(user.getLastName());
+        found.setPassword(user.getPassword());
+        found.setPhoneNumber(user.getPhoneNumber());
+        found.setUsername(user.getUsername());
         return user;
     }
 

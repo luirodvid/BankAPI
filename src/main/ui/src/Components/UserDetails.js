@@ -6,6 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 const UserDetails = () => {
   let { id } = useParams();
   const navigate = useNavigate();
+  const[hidden, setHidden] = useState(true);
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -64,6 +65,7 @@ const UserDetails = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (id==null) id = localStorage.getItem('logId');
     const user = {
       id,
       firstName,
@@ -73,16 +75,16 @@ const UserDetails = () => {
       email,
       phoneNumber
     };
-
-    fetch("http://localhost:8080/users", {
-      method: "POST",
+    console.log(user);
+    fetch(`http://localhost:8080/users/${id}`, {
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
       async: true
     })
-      .then(() => {
-        console.log("New user added");
-      })
+      .then(response => response.json())
+      .then(data => {console.log(data)})
+      .then(setHidden(false))
       .catch(error => {
         console.error('Error al guardar los datos del usuario:', error);
         alert('Error al guardar los datos del usuario');
@@ -106,6 +108,7 @@ const UserDetails = () => {
           <button className="create-delete darkblue-button" type="submit">SAVE</button>
         </form>
       </section>
+      <p className="changes" style={{color:"green", visibility: hidden ? 'hidden' : 'visible'}}>User sucessfully changed!</p>
     </div>
   );
 };

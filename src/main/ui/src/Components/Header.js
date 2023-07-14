@@ -2,10 +2,10 @@
 import React, { Component, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import bell from "../img/bell.svg";
-import userIcon from "../img/bell.svg";
-import homeIcon from "../img/bell.svg";
-import logoutIcon from "../img/bell.svg";
-import accountsIcon from "../img/bell.svg";
+import userIcon from "../img/user.svg";
+import homeIcon from "../img/home.svg";
+import logoutIcon from "../img/exit.svg";
+import accountsIcon from "../img/bank.svg";
 import burgerMenu from "../img/burger-menu.svg";
 import SubHeader from "./SubHeader";
 import { useLocation } from 'react-router-dom';
