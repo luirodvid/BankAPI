@@ -34,6 +34,7 @@ const Login = () => {
     localStorage.setItem('logFirstName', logFirstName);
     localStorage.setItem('logLastName', logLastName);
     localStorage.setItem('logId', logId);
+    window.location.reload();
   };
 
   const handleLogout = () => {

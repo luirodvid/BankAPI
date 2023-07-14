@@ -22,6 +22,7 @@ const Header = () => {
   const location = useLocation();
 
   const handleClick = (params) => () => {
+    console.log("algo");
     navigate("/"+params);
   }
 
