@@ -13,8 +13,8 @@ const SubHeader = () => {
     <nav id="transfer-nav">
       <ul>
         <li className="transfer-nav-li" id="everyone-li"><button>EVERYONE</button></li>
-        <li className="transfer-nav-li" id="friends-li">FRIENDS</li>
-        <li className="transfer-nav-li" id="mine-li">MINE</li>
+        <li className="transfer-nav-li" id="friends-li"><button>FRIENDS</button></li>
+        <li className="transfer-nav-li" id="mine-li"><button>MINE</button></li>
       </ul>
     </nav>
   )

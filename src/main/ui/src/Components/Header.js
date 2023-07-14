@@ -64,28 +64,32 @@ const Header = () => {
           <p>Account balance</p>
         </section>*/}
         <section id="opciones">
-          <span id="opcion-home" onClick={handleClick("")}>
+          <p id="opcion-home" onClick={handleClick("")}>
             <img src={homeIcon} alt="" />
-            <p>Home</p>
-          </span>
-          <span id="opcion-mi-cuenta"  onClick={handleClick("details")}>
+            <span>Home</span>
+          </p>
+          <p id="opcion-mi-cuenta"  onClick={handleClick("details")}>
             <img src={userIcon} alt="" />
-            <p>My Account</p>
-          </span>
-          <span id="opcion-cuentas" onClick={handleClick("accounts")}>
+            <span>My Account</span>
+          </p>
+          <p id="opcion-cuentas" onClick={handleClick("accounts")}>
             <img src={accountsIcon} alt="" />
-            <p>Bank Accounts</p>
-          </span>
-         {/* <span id="opcion-notificaciones">
+            <span>Bank Accounts</span>
+          </p>
+          {/*<p id="opcion-notificaciones">
             <img src={bell} alt="" />
-            <p>Notifications</p>
-      </span>*/}
-          <span id="opcion-logout" onClick={handleLogout}>
+            <span>Notifications</span>
+          </p>*/}
+          <p id="opcion-logout" onClick={handleLogout}>
             <img src={logoutIcon} alt="" />
-            <p>Logout</p>
-          </span>
+            <span>Logout</span>
+          </p>
         </section>
+        
       </aside>
+      
+      
+
     </header>
   )
 }
