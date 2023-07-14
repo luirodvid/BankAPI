@@ -72,7 +72,7 @@ header{
   justify-content: space-between;
   align-items: center;  /*Alinemaos verticalmente los elementos del header (botones y h2)*/
 
-  padding:.5rem;
+  padding:0 .5rem;
 
   background-color: darkblue;
   color:white
@@ -110,11 +110,20 @@ aside{
   transition: margin 700ms;
 }
 
+aside > section#opciones > p{
+  cursor: pointer;
+}
+
+/* Para que al ocupar una línea se coloque bajo el icono */
+aside > section#opciones > p > span{
+  display: block;
+}
+
 header > button#burger-menu:focus ~ aside{
   margin-left:0rem;
 }
 
-/*      ----------- MAIN   -----------*/
+/*      ----------- -MAIN-   -----------*/
 
 div.container{
   width: 80%;
@@ -132,10 +141,6 @@ div.container > h2{
   padding:0 2rem;
 
   color:darkblue;
-}
-
-div.container > section.setting-section{
-
 }
 
 div.container > section.setting-section{
@@ -222,6 +227,7 @@ nav#transfer-nav{
 nav#transfer-nav > ul{
   list-style: none;
   padding:0 2rem;
+  margin: 0;
   /* Quizás podemos abstraerlo para todas las uls en general */
   
   display: flex;
@@ -231,5 +237,6 @@ nav#transfer-nav > ul{
 }
 
 nav#transfer-nav > ul > li{
-  
+  padding: .5rem 2rem;
+  border-bottom: .2rem solid white;
 }
