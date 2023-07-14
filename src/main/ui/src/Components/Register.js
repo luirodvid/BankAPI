@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import settingImg from "../img/setting.png";
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
@@ -47,11 +49,13 @@ const Register = () => {
     })
       .then(() => {
         console.log("New user added");
+        navigate("/");
       })
       .catch(error => {
         console.error('Error al guardar los datos del usuario:', error);
         alert('Error al guardar los datos del usuario');
       });
+
   };
 
   return (

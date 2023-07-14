@@ -1,6 +1,6 @@
 
 import React, { Component, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import bell from "../img/bell.svg";
 import userIcon from "../img/bell.svg";
 import homeIcon from "../img/bell.svg";
@@ -15,13 +15,13 @@ const Header = () => {
   const isLoggedIn = localStorage.getItem('isLoggedIn');
   const logFirstname = localStorage.getItem('logFirstName');
   const logLastname = localStorage.getItem('logLastName');
+  const navigate = useNavigate;
 
   const [showSubHeader, setShowSubHeader] = useState(false);
 
   const location = useLocation();
 
   useEffect(() => {
-    console.log(location.pathname);
     if(location.pathname === "/transfers"){
       setShowSubHeader(true);
     }
